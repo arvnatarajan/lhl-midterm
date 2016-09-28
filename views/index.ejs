@@ -7,11 +7,32 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <style>
+      html, body {
+        height: 90%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <h1>Hello Map!</h1>
+
+    <div id="map"></div>
+
+
+    <!-- jquery library -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <!-- app.js scripts -->
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <!-- maps.js script file -->
+    <script type="text/javascript" src="/scripts/map.js"></script>
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkBjrWzl_yuZ7nrOKPC8NCRWvX4-qOOTY&callback=initMap"
+    async defer></script>
   </body>
 </html>
