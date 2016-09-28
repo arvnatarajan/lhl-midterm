@@ -2,7 +2,9 @@
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  username VARCHAR(50) NOT NULL,
   email VARCHAR(50),
   password VARCHAR(50),
   picture VARCHAR(100)
@@ -21,7 +23,7 @@ CREATE TABLE points (
   lng INT NOT NULL,
   name VARCHAR(100),
   list_id INT references lists(id),
-  picture VARCHAR(100)
+  picture VARCHAR(600)
 );
 
 CREATE TABLE favourites (
@@ -29,5 +31,3 @@ CREATE TABLE favourites (
   user_id INT references users(id),
   list_id INT references lists(id)
 );
-
-
