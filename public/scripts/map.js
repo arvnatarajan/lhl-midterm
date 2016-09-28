@@ -1,35 +1,39 @@
 let map;
-
-let points = [
-  {lat: -25.3110, lng: 131.1110},
-  {lat: -25.3111, lng: 131.1111},
-  {lat: -25.3112, lng: 131.1112}
-];
+let points;
 
 let contentString = `
   <div id="content">
-    <p>This is my content</p>
+  <p>This is my content</p>
   </div>
-    `;
+`;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 18,
-    center: {lat: -25.311, lng: 131.111}
+    zoom: 13,
+    center: {lat: 43.65, lng: -79.36}
   });
 
   let infowindow = new google.maps.InfoWindow({
     content: contentString
   });
 
-  points.forEach( (coord) => {
-    let marker = new google.maps.Marker({
-      position: coord,
-      map: map,
-      title: 'Hello World!'
+  $.get('/api/points')
+    .then((result) => {
+      result.forEach( (coord) => {
+        let newCoord = for(value in coord) {
+          Number(value);
+        }
+        let marker = new google.maps.Marker({
+          position: newCoord,
+          map: map,
+          title: 'Hello World!'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-    marker.addListener('click', function() {
-      infowindow.open(map, marker);
-    });
-  });
 }
