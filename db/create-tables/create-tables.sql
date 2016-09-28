@@ -19,8 +19,8 @@ CREATE TABLE lists (
 
 CREATE TABLE points (
   id SERIAL PRIMARY KEY,
-  lat INT NOT NULL,
-  lng INT NOT NULL,
+  lat DECIMAL NOT NULL,
+  lng DECIMAL NOT NULL,
   name VARCHAR(100),
   list_id INT references lists(id),
   picture VARCHAR(600)
@@ -28,6 +28,6 @@ CREATE TABLE points (
 
 CREATE TABLE favourites (
   id SERIAL PRIMARY KEY,
-  user_id INT references users(id),
-  list_id INT references lists(id)
+  list_id INT references lists(id),
+  user_id INT references users(id)
 );
