@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "node-skeleton",
   "version": "1.0.0",
   "description": "",
@@ -27,27 +26,4 @@
     "nodemon": "^1.9.2",
     "sqlite3": "^3.1.4"
   }
-=======
-  "name": "lhl-midterm",
-  "version": "1.0.0",
-  "description": "Midterm project for LHL",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ArvNatarajan/lhl-midterm.git"
-  },
-  "keywords": [
-    "LHL",
-    "midterm"
-  ],
-  "author": "Anderson, Eric, Arv",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ArvNatarajan/lhl-midterm/issues"
-  },
-  "homepage": "https://github.com/ArvNatarajan/lhl-midterm#readme"
->>>>>>> refs/remotes/origin/master
 }
