@@ -3,12 +3,13 @@
 const express = require('express');
 const router  = express.Router();
 
-module.exports = (knex) => {
+module.exports = (knex, id) => {
 
   router.get("/", (req, res) => {
     knex
       .select("*")
-      .from("users")
+      .from("lists")
+      .where('user_id', id)
       .then((results) => {
         console.log(results);
         res.json(results);
