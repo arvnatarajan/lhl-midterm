@@ -20,9 +20,6 @@ function initMap() {
   $.get('/api/points')
     .then((result) => {
       result.forEach( (coord) => {
-        let newCoord = for(value in coord) {
-          Number(value);
-        }
         let marker = new google.maps.Marker({
           position: newCoord,
           map: map,
