@@ -4,17 +4,28 @@
   bottom: 10px;
 }
 
-.modal-input{
-  width:100%;
-  height:30px;
-  display:inline-block;
-  margin:10px 0px 10px 0px;
+#myModal{
+
+  .modal-input{
+    width:100%;
+    height:30px;
+    display:inline-block;
+    margin:10px 0px 10px 0px;
+  }
+
+  .list-holder{
+    height: 20px;
+    width: 150px;
+    float:right;
+    overflow:hidden;
+  }
+
+  .list-body{
+    display:none;
+  }
+  #list-submit{
+    display:none;
+  }
+
 }
 
-.list-holder{
-  height: 20px;
-  width: 150px;
-  /* background-color: darkslateblue; */
-  float:right;
-  overflow:hidden;
-}
