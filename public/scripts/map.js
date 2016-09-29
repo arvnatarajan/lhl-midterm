@@ -3,13 +3,11 @@ let points;
 let currentLat;
 let currentLong;
 
-
 let contentString = `
   <div id="content">
   <p>This is my content</p>
   </div>
 `;
-
 
 function geo_success(position) {
   console.log(`Current Position: ${position.coords.latitude} ${position.coords.longitude}`);
@@ -43,17 +41,14 @@ function initMap() {
           lat: Number(coord.lat),
           lng: Number(coord.lng)
         }
-
         let infowindow = new google.maps.InfoWindow({
           content: contentString
         });
-
         let marker = new google.maps.Marker({
           position: numCoord,
           map: map,
           title: 'Hello World!'
         });
-
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });

@@ -22,22 +22,31 @@ function createListElement(list, index) {
   var name = list.name;
   var description = list.description;
   var createdBy = list.user_id;
-  var html = `<div class="listBox">
-  <h3>${id}</h3> <h2>${name}</h2> <p>${description}</p> <p class="creator">By: ${createdBy}</p> </div>`;
-
-
+  var html = `
+  <div class="listBox">
+    <h3>
+      ${id}
+    </h3>
+    <h2>
+      ${name}
+    </h2>
+    <p>
+      ${description}
+    </p>
+    <p class="creator">
+      By: ${createdBy}
+    </p>
+    <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+  </div>`;
 
   return $('#lists-container').append(html);
 };
-
 
 function renderLists(lists) {
   $('#lists-container').empty();
   lists.forEach(createListElement);
 }
-
-
-
 
 $(document).ready(function() {
 
@@ -46,12 +55,11 @@ $(document).ready(function() {
       'url': '/api/lists',
       'method': 'GET',
       'dataType': 'json',
-      'success': function(data2) {
-        renderLists(data2);
+      'success': function(data) {
+        renderLists(data);
       }
     });
   };
   loadLists();
-
 
 })

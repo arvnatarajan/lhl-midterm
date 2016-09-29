@@ -28,7 +28,9 @@
   }
   h2 {
     text-align:center;
-    font-size: 75%;
+    font-size: 90%;
+    margin-top: 10px;
+    font-weight:bolder;
   }
   #hideNav {
     float:right;
@@ -58,6 +60,23 @@
     .listBox {
       border: solid 1px #FFAAAA;
       margin: 1px 1px;
+      overflow:hidden;
+      border-radius: 3px;
+      .glyphicon {
+        float:right;
+        margin: 2px 2px 3px 2px;
+      }
+      .glyphicon-heart-empty:hover {
+        color:red;
+        animation: wiggle 0.5s infinite;
+      }
+      .glyphicon-heart-empty:active {
+          color:blue;
+      }
+      .glyphicon-pencil:hover {
+        color:green;
+        animation: wiggle 0.5s infinite;
+      }
       h3 {
         margin: 2px 0;
         font-size: 50%;
@@ -65,7 +84,9 @@
         float: left;
       }
       h2{
-        margin: 5 auto 0 auto;
+        margin: 4px auto 3px auto;
+        font-weight:bold;
+        font-size: 90%;
       }
       p {
         font-size: 50%;
@@ -78,8 +99,22 @@
       }
     }
   }
-
 }
 #topNav {
 
+}
+@media only screen and (max-width: 700px) {
+  #mySidenav {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #mySidenav {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  #mySidenav {
+    width: 90%;
+  }
 }
