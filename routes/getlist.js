@@ -9,12 +9,11 @@ module.exports = (knex, id) => {
     knex
       .select("*")
       .from("lists")
-      .where('user_id', id)
+      // .where('user_id', id)
       .then((results) => {
         console.log(results);
         res.json(results);
     });
   });
-
   return router;
 }

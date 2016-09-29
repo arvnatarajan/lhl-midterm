@@ -12,7 +12,7 @@ let contentString = `
 
 
 function geo_success(position) {
-  console.log(position.coords.latitude, position.coords.longitude);
+  console.log(`Current Position: ${position.coords.latitude} ${position.coords.longitude}`);
   currentLat = position.coords.latitude;
   currentLong = position.coords.longitude
 }
