@@ -11,7 +11,6 @@ module.exports = (knex, id) => {
       .from("lists")
       .where('user_id', id)
       .then((results) => {
-        console.log(results);
         res.json(results);
     });
   });

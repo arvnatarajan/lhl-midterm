@@ -5,12 +5,11 @@ const router  = express.Router();
 
 module.exports = (knex) => {
 
-  router.get("/", (req, res) => {
+  router.post("/", (req, res) => {
     knex
-      .select('lat','lng')
-      .from("points")
+      .insert([{lat:req.body.lat},{lng:req.body.lng},{name:req.body.name},{list_id:req.body.listid},{picture:req.body.picture}])
+      .into('points')
       .then((results) => {
-        console.log(results);
         res.json(results);
     });
   });

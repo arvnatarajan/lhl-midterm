@@ -1,0 +1,42 @@
+<!-- Trigger the modal with a button -->
+<button type="button" id="add-point-button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <ul class="nav nav-pills">
+          <li role="presentation" class="active"><a href="#">Points</a></li>
+          <li role="presentation"><a href="#">Lists</a></li>
+        </ul>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input class = "modal-input" type="text" name="point-title" placeholder="Title">
+          <input class = "modal-input" type="text" name="point-title" placeholder="Description">
+          <input class = "modal-input" type="text" name="point-title" placeholder="Picture">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+ <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
