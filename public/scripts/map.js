@@ -8,11 +8,6 @@ let contentString = `
   </div>
 `;
 
-let geo_options = {
-  enableHighAccuracy: true,
-  maximumAge        : 30000,
-  timeout           : 27000
-};
 let icon ="";
 
 const iconBase = 'http://maps.google.com/mapfiles/';
@@ -32,17 +27,7 @@ const icons = {
   }
 }
 
-const geo_success = (position) => {
-  console.log(`Current Position: ${position.coords.latitude} ${position.coords.longitude}`);
-  currentLat = position.coords.latitude;
-  currentLong = position.coords.longitude;
-}
 
-const geo_error = () => {
-  alert("Sorry, no position available.");
-}
-
-const wpid = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
 
 const infowindow = new google.maps.InfoWindow({
   content: contentString
@@ -83,15 +68,20 @@ const addInfoWindow = (point) => {
   });
 }
 
-initMap();
+// initMap();
 // clearMarkers();
 // addInfoWindow();
 
-accessPoints.then((result) => {
-  for (let i = 0; i < result.length; i++) {
-    addMarker(result[i], i * 200);
-  }
-})
-.catch((err) => {
-  console.log(err);
+
+$(document).ready(function() {
+  accessPoints.then((result) => {
+    for (let i = 0; i < result.length; i++) {
+      addMarker(result[i], i * 200);
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+  loc.initLocationProcedure();
 });
