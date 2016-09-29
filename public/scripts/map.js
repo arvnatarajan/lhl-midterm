@@ -4,7 +4,7 @@ let currentLat;
 let currentLong;
 let icon ="";
 
-const contentString = `
+let contentString = `
   <div id="content">
   <p>This is my content</p>
   </div>
