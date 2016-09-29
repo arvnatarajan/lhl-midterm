@@ -8,6 +8,11 @@
   top: 0px;
   z-index: 99;
   width: 60px;
+  border: solid 1px white;
+  opacity: 0.7;
+  background: white;
+  border-radius: 5px;
+  padding: 3px;
 }
 #mySidenav {
   font-family: 'Open Sans', sans-serif;
@@ -19,7 +24,7 @@
   position:fixed;
   z-index: 100;
   border-right: 1px solid #FFAAAA;
-  box-shadow: 10px 00px 150px #FFAAAA;
+  box-shadow: 10px 0px 150px #FFAAAA;
   opacity: 0.98;
   a {
     color: #244751;
@@ -33,6 +38,14 @@
     margin: 6px;
     width: 20px;
     position: relative;
+  }
+  @keyframes wiggle {
+  0% {transform:rotate(5deg);}
+  50% {transform:rotate(-5deg);}
+  100% {transform:rotate(5deg);}
+  }
+  #hideNav:hover {
+    animation: wiggle 0.5s infinite;
   }
   #filterSec {
     height: 33%;
