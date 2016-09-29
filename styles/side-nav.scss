@@ -46,17 +46,30 @@
   #hideNav:hover {
     animation: wiggle 0.5s infinite;
   }
-  #filterSec {
-    height: 33%;
-    border-bottom: 1px solid #FFAAAA;
-  }
   #carouselSec {
     height: 25%;
+    border-bottom: 1px solid #FFAAAA;
+  }
+  #filterSec {
+    height: 20%;
+    table {
+      width: 90%;
+      margin: 5px 0 0 35px;
+      text-align:left;
+      line-height: 22px;
+    }
   }
   #listsSec {
-    height: 42%;
+    height: 55%;
     border-top: 1px solid #FFAAAA;
-    overflow:scroll;
+    overflow: scroll;
+    #lists-container {
+      margin: 10px auto 0 auto;
+      width: 95%;
+      input {
+        background: red;
+      }
+    }
     .listBox {
       border: solid 1px #FFAAAA;
       margin: 1px 1px;
@@ -74,7 +87,7 @@
           color:blue;
       }
       .glyphicon-pencil:hover {
-        color:green;
+        color: green;
         animation: wiggle 0.5s infinite;
       }
       h3 {
