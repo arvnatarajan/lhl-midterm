@@ -1,14 +1,35 @@
 <!-- views/partials/side-nav-bar.ejs -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+
+<div id="topNav">
+  <img src="svg/hamburger.svg" alt="menu toggle icon" id="hamburger">
 </div>
 
-<!-- Use any element to open the sidenav -->
-<div>
-  <button type="button" onclick="openNav()">Nav</button>
+
+<div id="mySidenav" class="sidenav">
+
+  <img src="svg/exit.svg" alt="menu toggle icon" id="hideNav">
+
+  <section id="filterSec">
+    <h2>Filters</h2>
+  </section>
+
+
+  <section id="carouselSec">
+    <h2>Trending</h2>
+  </section>
+  <section id="listsSec">
+    <h2>Curated Lists</h2>
+    <ul>
+<li><input type="radio">this list
+<li><input type="radio">this list
+<li><input type="radio">this list
+<li><input type="radio">this list
+  <li><input type="radio">this list
+  <li><input type="radio">this list      <li><input type="radio">this list      <li><input type="radio">this list      <li><input type="radio">this list      <li><input type="radio">this list      <li><input type="radio">this list      <li><input type="radio">this list
+    </ul>
+  </section>
+
+
 </div>
