@@ -1,11 +1,9 @@
 $(document).ready(()=>{
 
-
   /*Put lists that belong to user to dropdown*/
   $.get('/api/lists')
   .then((result) => {
     result.forEach((list)=>{
-      console.log(list);
       var html = `<li data-list-id="${list.id}"><a href="#">${list.name}</a></li>`;
       $('.modal-list-drop').append(html);
       $('.modal-list-drop li').on('click', function (e) {
