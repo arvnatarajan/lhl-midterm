@@ -20,8 +20,12 @@ function initMap() {
   $.get('/api/points')
     .then((result) => {
       result.forEach( (coord) => {
+        let numCoord = {
+          lat: Number(coord.lat),
+          lng: Number(coord.lng)
+        }
         let marker = new google.maps.Marker({
-          position: newCoord,
+          position: numCoord,
           map: map,
           title: 'Hello World!'
         });
