@@ -45,5 +45,19 @@ let loc = {
       // tell the user if a browser doesn't support this amazing API
       alert("Your browser does not support the Geolocation API!");
     }
+  },
+  getPosition: () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        let pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        return pos;
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      alert("Your browser does not support the Geolocation API!");
+    }
   }
 }
