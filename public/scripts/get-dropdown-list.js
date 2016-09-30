@@ -1,5 +1,4 @@
 $(document).ready(()=>{
-
   //AH: Put lists that belong to user to dropdown
   $.get('/api/lists')
     .then((result) => {
