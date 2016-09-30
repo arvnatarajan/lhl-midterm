@@ -22,7 +22,7 @@
   z-index: 100;
   border-right: 1px solid #FFAAAA;
   box-shadow: 10px 0px 150px #FFAAAA;
-  opacity: 0.98;
+  opacity: 0.95;
   a {
     color: #244751;
   }
@@ -48,7 +48,24 @@
   }
   #carouselSec {
     height: 25%;
-    border-bottom: 1px solid #FFAAAA;
+    border-bottom: 3px solid #FFAAAA;
+          background-image: url("http://www.seetorontonow.com/wp-content/uploads/2016/08/toronto-in-september-thumbnail.jpg");
+          background-size: cover;
+    div {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      margin-top: -10px;
+      h1 {
+        text-align:center;
+        color: black;
+        font-weight:bolder;
+        -webkit-text-fill-color: white;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+      }
+    }
+
   }
   #filterSec {
     height: 20%;
