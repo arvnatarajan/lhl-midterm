@@ -1,29 +1,26 @@
-$( document ).ready(()=>{
+$( document ).ready(() => {
+  $('#modal-submit').on('click', (event) => {
+    event.preventDefault();
+    loc.getPosition( (pos) => {
+      let data = {
+        'lat': pos.lat,
+        'lng': pos.lng,
+        'title': $('#point-title').val(),
+        'description': $('#point-description').val(),
+        'picture': $('#point-picture').val(),
+        'listid': $('.list-holder li').data("token")
+      }
 
-
-  console.log('hello');
-  console.log(loc);
-
-
-  $("#modal-submit").on('click', (event)=>{
-    let data = {
-      'lat': 43.65,
-      'lng': -79.36,
-      'title': $('#point-title').val(),
-      'description': $('#point-description').val(),
-      'picture': $('#point-picture').val(),
-      'listid': $('.list-holder li').data("token")
-    }
-
-    $.ajax({
-        url: "/api/createpoints",
-        type: "POST",
+      $.ajax({
+        url: '/api/createpoints',
+        type: 'POST',
         data: data,
-        success: ()=>{
-          console.log('success');
-        }})
+        success: () => {
+          console.log('Point added to database');
+        }
+      })
+    })
   })
-
 
   $(".point-pill").on('click', function(){
     $('.list-pill').removeClass('active');

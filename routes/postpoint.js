@@ -4,7 +4,6 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (knex) => {
-
   router.post("/", (req, res) => {
     knex
       ('points')
@@ -22,6 +21,5 @@ module.exports = (knex) => {
         console.log(error);
       })
   });
-
   return router;
 }

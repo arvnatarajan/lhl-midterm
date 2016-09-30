@@ -2,13 +2,14 @@ let map;
 let points;
 let currentLat;
 let currentLong;
+  let markers = []
 let contentString = `
   <div id="content">
   <p>This is my content</p>
   </div>
 `;
 
-let icon ="";
+let icon ='';
 
 const iconBase = 'http://maps.google.com/mapfiles/';
 
@@ -27,54 +28,43 @@ const icons = {
   }
 }
 
-
-
-const infowindow = new google.maps.InfoWindow({
-  content: contentString
-});
-
-const accessPoints = $.get('/api/points');
-
-
-function initMap() {
+const initMap = () => {
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
-    center: {lat: 43.65, lng: -79.36}
+    center: {lat: 43.65, lng: -79.36},
+    mapTypeControl: false,
+    streetViewControl: false
   });
 }
 
-const addMarker = (point, timeout) => {
-
+  const addMarker = (point, timeout) => {
   window.setTimeout(() => {
     let marker = new google.maps.Marker({
       position: new google.maps.LatLng(Number(point.lat), Number(point.lng)),
       map: map,
       animation: google.maps.Animation.DROP,
-      icon: icons[point['list_id']].icon
+      icon: (icons[point['list_id']] || {}).icon
     });
   }, timeout);
 }
 
-// const clearMarkers = (result) => {
-//   for (var i = 0; i < result.length; i++) {
-//     result[i].setMap(null);
-//   }
-//   result = [];
-// }
+const infowindow = new google.maps.InfoWindow({
+  content: contentString
+});
 
-const addInfoWindow = (point) => {
-  point.addListener('click', () => {
-     infowindow.open(map, point);
+const addInfoWindow = (marker) => {
+  marker.addListener('click', () => {
+    infowindow.open(map, point);
   });
 }
 
-// initMap();
-// clearMarkers();
 // addInfoWindow();
 
-
 $(document).ready(function() {
-  accessPoints.then((result) => {
+  loc.initLocationProcedure();
+
+  $.get('/api/points')
+    .then((result) => {
     for (let i = 0; i < result.length; i++) {
       addMarker(result[i], i * 200);
     }
@@ -83,5 +73,4 @@ $(document).ready(function() {
     console.log(err);
   });
 
-  loc.initLocationProcedure();
 });
