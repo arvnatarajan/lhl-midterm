@@ -1,4 +1,10 @@
 $( document ).ready(()=>{
+
+
+  console.log('hello');
+  console.log(loc);
+
+
   $("#modal-submit").on('click', (event)=>{
     let data = {
       'lat': 43.65,
