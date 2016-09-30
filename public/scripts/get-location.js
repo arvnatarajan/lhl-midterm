@@ -1,11 +1,8 @@
 let loc = {
-  // AN: alerts the user if the current position could not be located
   'error': (error) => {
     alert("The current position could not be found!");
   },
-  // AN: Sets the current position of the user
   'setCurrentPosition': (pos) => {
-    //AN: Creates marker at current position
     loc.currentPositionMarker = new google.maps.Marker({
       map: map,
       position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
@@ -42,7 +39,6 @@ let loc = {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(loc.displayAndWatch, loc.error);
     } else {
-      // tell the user if a browser doesn't support this amazing API
       alert("Your browser does not support the Geolocation API!");
     }
   },

@@ -2,12 +2,8 @@ let map;
 let points;
 let currentLat;
 let currentLong;
-  let markers = []
-let contentString = `
-  <div id="content">
-  <p>This is my content</p>
-  </div>
-`;
+let markers = [];
+let contentString;
 
 let icon ='';
 
@@ -30,14 +26,21 @@ const icons = {
 
 const initMap = () => {
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 13,
+    zoom: 12,
     center: {lat: 43.65, lng: -79.36},
     mapTypeControl: false,
     streetViewControl: false
   });
 }
 
-  const addMarker = (point, timeout) => {
+const infowindow = new google.maps.InfoWindow({
+  content: `<div id="content">
+              <p>This is my content</p>
+            </div>
+          `
+});
+
+const addMarker = (point, timeout) => {
   window.setTimeout(() => {
     let marker = new google.maps.Marker({
       position: new google.maps.LatLng(Number(point.lat), Number(point.lng)),
@@ -45,20 +48,13 @@ const initMap = () => {
       animation: google.maps.Animation.DROP,
       icon: (icons[point['list_id']] || {}).icon
     });
-  }, timeout);
-}
 
-const infowindow = new google.maps.InfoWindow({
-  content: contentString
-});
-
-const addInfoWindow = (marker) => {
-  marker.addListener('click', () => {
-    infowindow.open(map, point);
+    marker.addListener('click', () => {
+      infowindow.open(map, marker);
+    });
   });
 }
 
-// addInfoWindow();
 
 $(document).ready(function() {
   loc.initLocationProcedure();
