@@ -16,17 +16,17 @@ let loc = {
     map.panTo(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
   },
   //AN: Watches current position, and refreshes if user moves location
-  'watchCurrentPosition': () => {
-    let positionTimer = navigator.geolocation.watchPosition(
-      function (position) {
-        loc.setMarkerPosition(loc.currentPositionMarker, position);
-      }
-    );
-  },
+  // 'watchCurrentPosition': () => {
+  //   let positionTimer = navigator.geolocation.watchPosition(
+  //     function (position) {
+  //       loc.setMarkerPosition(loc.currentPositionMarker, position);
+  //     }
+  //   );
+  // },
   //AN: Sets current position and watches it
   'displayAndWatch': (position) => {
     loc.setCurrentPosition(position);
-    loc.watchCurrentPosition();
+    // loc.watchCurrentPosition();
   },
   //AN: Sets marker at current position
   setMarkerPosition: (marker, position) => {
@@ -46,15 +46,18 @@ let loc = {
       alert("Your browser does not support the Geolocation API!");
     }
   },
-  getPosition: () => {
+  getPosition: (callback) => {
+    console.log('Searching for location...');
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         let pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        return pos;
-      });
+        callback(pos);
+      }, loc.error);
+
     } else {
       // Browser doesn't support Geolocation
       alert("Your browser does not support the Geolocation API!");
