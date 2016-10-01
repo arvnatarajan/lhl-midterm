@@ -97,7 +97,7 @@
         margin: 2px 2px 3px 2px;
       }
       .glyphicon-heart-empty:hover {
-        color:red;
+        color:blue;
         animation: wiggle 0.5s infinite;
       }
       .glyphicon-heart-empty:active {
@@ -110,6 +110,9 @@
       .glyphicon-share-alt:hover {
         color: blue;
         animation: wiggle 0.5s infinite;
+      }
+      .liked {
+        color: blue;
       }
       h3 {
         margin: 2px 0;

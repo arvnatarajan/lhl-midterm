@@ -20,7 +20,7 @@ const usersRoutes         = require('./routes/users');
 const listsRoutes         = require('./routes/getlist');
 const pointsRoutes        = require('./routes/getpoints');
 const createPointsRoutes  = require('./routes/postpoint');
-//const newLikeRoutes = require("./routes/postlike");
+const newLikeRoutes       = require('./routes/postlike');
 
 
 // AUTH =========================================================
@@ -57,17 +57,14 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 
-
 const test_id = 2;
-
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
 app.use("/api/lists", listsRoutes(knex, test_id));
 app.use("/api/points", pointsRoutes(knex));
 app.use("/api/createpoints", createPointsRoutes(knex));
-
-//app.use("/api/postlike", newLikeRoutes(knex));
+app.use("/api/postlike", newLikeRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
