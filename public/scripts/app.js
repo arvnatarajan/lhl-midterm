@@ -27,10 +27,12 @@ function createListElement(list, index) {
   var name = list.name;
   var description = list.description;
   var createdBy = list.user_id;
+  var liked;
+  console.log(list)
   var html = `
   <div class="listBox" id ="${id}">
     <h3>
-      ${id}
+      id: ${id}
     </h3>
     <h2>
       ${name}
@@ -63,6 +65,12 @@ $(document).ready(function() {
     });
   };
   loadLists();
+
+
+    $(".glyphicon-heart-empty p").click(function(){
+      $(this).addClass("liked");
+        console.log("liked")
+    });
 
 
 })

@@ -2,7 +2,7 @@
 $(document).ready(() => {
 
 
-  $('.listBox').on('click', (event) => {
+  $('.listBox .glyphicon-heart-empty').on('click', (event) => {
     event.preventDefault();
 
       $.ajax({
@@ -19,7 +19,7 @@ $(document).ready(() => {
 // changes the color of the heart by adding 'liked' class
     $(".glyphicon-heart-empty").on("click", function(){
         console.log('liked')
-        $(".glyphicon-heart-empty").toggleClass("liked");
+        $(".glyphicon-heart-empty").css({color:"red"});
     });
 
   })
