@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ./partials/head %>
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkBjrWzl_yuZ7nrOKPC8NCRWvX4-qOOTY"></script>
+  </body>
+  </head>
+
+  <body>
+    <% include ./partials/side-nav-bar.ejs %>
+
+  <div id="map"></div>
+
+    <% include ./partials/modalwindow %>
+
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/get-location.js"></script>
+    <script type="text/javascript" src="/scripts/map.js"></script>
+    <script type="text/javascript" src="/scripts/post-modal.js"></script>
+    <script type="text/javascript" src="/scripts/get-dropdown-list.js"></script>
+  </body>
+</html>

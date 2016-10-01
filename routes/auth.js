@@ -1,6 +1,5 @@
 'use strict';
 
-
 module.exports = (app, passport) => {
 
   app.get('/signup', function(req, res) {
@@ -17,7 +16,7 @@ module.exports = (app, passport) => {
     res.render('login', { message: req.flash('loginMessage') });
   });
 
-  app.post('/login', passport.authenticate('local-signup', {
+  app.post('/login', passport.authenticate('local-login', {
     successRedirect : '/profile',
     failureRedirect : '/login',
     failureFlash : true
@@ -27,5 +26,4 @@ module.exports = (app, passport) => {
     req.logout();
     res.redirect('/');
   });
-
 }
