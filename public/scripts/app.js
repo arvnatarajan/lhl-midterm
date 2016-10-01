@@ -23,7 +23,7 @@ function createListElement(list, index) {
   var description = list.description;
   var createdBy = list.user_id;
   var html = `
-  <div class="listBox">
+  <div class="listBox" id ="${id}">
     <h3>
       ${id}
     </h3>
