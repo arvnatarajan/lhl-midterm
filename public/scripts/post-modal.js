@@ -1,4 +1,7 @@
 $( document ).ready(() => {
+
+  //Submit Point
+
   $('#modal-submit').on('click', (event) => {
     event.preventDefault();
     loc.getPosition( (pos) => {
@@ -10,7 +13,8 @@ $( document ).ready(() => {
         'picture': $('#point-picture').val(),
         'listid': $('.list-holder li').data("token")
       }
-
+      $(':input').val('');
+      $('#myModal').modal('toggle');
       $.ajax({
         url: '/api/createpoints',
         type: 'POST',
@@ -21,6 +25,29 @@ $( document ).ready(() => {
       })
     })
   })
+
+
+
+  //Submit List
+
+  $('#list-submit').on('click', (event) => {
+    event.preventDefault();
+      let data = {
+        'title': $('#list-title').val(),
+        'description': $('#list-description').val()
+      }
+      $(':input').val('');
+      $('#myModal').modal('toggle');
+      $.ajax({
+        url: '/api/createlists',
+        type: 'POST',
+        data: data,
+        success: () => {
+          console.log('List added to database');
+        }
+      })
+  })
+
 
   $(".point-pill").on('click', function(){
     $('.list-pill').removeClass('active');
