@@ -8,14 +8,12 @@ module.exports = (knex) => {
     knex
       ('points')
       .insert({
-        lat:req.body.lat,
-        lng:req.body.lng,
-        name:req.body.title,
-        list_id:req.body.listid,
-        picture:req.body.picture
+        list_id:req.body,
+        user_id:req.body
       })
       .then((results) => {
         res.json(results);
+        console.log(req.body)
     })
       .catch((error)=>{
         console.log(error);

@@ -1,7 +1,6 @@
 "use strict";
 
 require('dotenv').config();
-
 const PORT                = process.env.PORT || 8080;
 const ENV                 = process.env.ENV || "development";
 const express             = require('express');
@@ -21,6 +20,7 @@ const usersRoutes         = require('./routes/users');
 const listsRoutes         = require('./routes/getlist');
 const pointsRoutes        = require('./routes/getpoints');
 const createPointsRoutes  = require('./routes/postpoint');
+//const newLikeRoutes = require("./routes/postlike");
 
 
 // AUTH =========================================================
@@ -40,6 +40,7 @@ app.use(flash());
 // END AUTH =====================================================
 
 app.set('view engine', 'ejs');
+
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -65,6 +66,13 @@ app.use("/api/users", usersRoutes(knex));
 app.use("/api/lists", listsRoutes(knex, test_id));
 app.use("/api/points", pointsRoutes(knex));
 app.use("/api/createpoints", createPointsRoutes(knex));
+
+//app.use("/api/postlike", newLikeRoutes(knex));
+
+// Home page
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
