@@ -2,15 +2,6 @@ exports.seed = function(knex, Promise) {
 
 
   return knex('users').del()
-    // .then
-    // (function(){
-    //   retrun Promise.all([
-    //     knex.createTable('users', function(table){
-    //       table.increments();
-    //       table.string('first_name');
-    //     })
-    //   ])
-    // })
     .then(function() {
         return Promise.all([
             knex('users').insert({
@@ -65,6 +56,18 @@ exports.seed = function(knex, Promise) {
           name: 'Most Delicious of Places List',
           description: 'list of crazy delicious places',
           user_id: '3'
+        }),
+        knex('lists').insert({
+          id: 4,
+          name: 'Green Places List',
+          description: 'list of crazy delicious places',
+          user_id: '3'
+        }),
+        knex('lists').insert({
+          id: 5,
+          name: 'Driving For Fun List',
+          description: 'list of crazy delicious places',
+          user_id: '1'
         })
       ]);
     })
@@ -81,7 +84,8 @@ exports.seed = function(knex, Promise) {
           lng: '-79.400062',
           name: 'Fashion District',
           list_id: '1',
-          picture: 'none'
+          picture: 'none',
+          description: 'A souless place full of hate and money.'
         }),
         knex('points').insert({
           id: 2,
@@ -89,7 +93,8 @@ exports.seed = function(knex, Promise) {
           lng: '-79.360253',
           name: 'Distillery District',
           list_id: '3',
-          picture: 'none'
+          picture: 'none',
+          description: 'fun place where you can buy tacos from Stephen'
         }),
         knex('points').insert({
           id: 3,
@@ -97,11 +102,41 @@ exports.seed = function(knex, Promise) {
           lng: '-79.340321',
           name: 'Port Lands',
           list_id: '2',
-          picture: 'none'
+          picture: 'none',
+          description: 'scary place where people often get murdered'
+        }),
+        knex('points').insert({
+          id: 4,
+          lat: '43.670525',
+          lng: '-79.356747',
+          name: 'Riverdale Park',
+          list_id: '4',
+          picture: 'none',
+          description: 'Super green place. full of green thigns'
+        }),
+        knex('points').insert({
+          id: 5,
+          lat: '43.310949',
+          lng: '-79.889669',
+          name: 'Snake Road',
+          list_id: '5',
+          picture: 'none',
+          description: 'really cool windy road where you can go really fast and pull mad hoon maneuvers'
+        }),
+        knex('points').insert({
+          id: 6,
+          lat: '43.331052',
+          lng: '-79.845761',
+          name: 'King Road',
+          list_id: '5',
+          picture: 'none',
+          description: 'really cool windy road where you can really open her up.'
         })
       ]);
     });
 })
+
+
 
 .then(function() {
   return knex('favourites').del()
@@ -136,6 +171,21 @@ exports.seed = function(knex, Promise) {
           id: 6,
           list_id: 1,
           user_id: 2
+        }),
+        knex('favourites').insert({
+          id: 7,
+          list_id: 4,
+          user_id: 2
+        }),
+        knex('favourites').insert({
+          id: 8,
+          list_id: 2,
+          user_id: 4
+        }),
+        knex('favourites').insert({
+          id: 6,
+          list_id: 4,
+          user_id: 4
         })
       ]);
     });
