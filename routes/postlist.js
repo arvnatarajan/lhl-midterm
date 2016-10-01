@@ -3,17 +3,17 @@
 const express = require('express');
 const router  = express.Router();
 
-module.exports = (knex) => {
+module.exports = (knex, id) => {
   router.post("/", (req, res) => {
     knex
-      ('favourites')
+      ('lists')
       .insert({
-        list_id:req.body,
-        user_id:req.body.title
+        name:req.body.title,
+        description:req.body.description,
+        user_id:id
       })
       .then((results) => {
         res.json(results);
-        console.log(req.body)
     })
       .catch((error)=>{
         console.log(error);
