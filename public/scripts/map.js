@@ -32,9 +32,10 @@ const initMap = () => {
   });
 }
 
+
 const infowindow = new google.maps.InfoWindow({
   content: `<div id="content">
-              <p>This is my content</p>
+              <p>this is my content, can't figure out how to put point info in this box</p>
             </div>
           `
 });
@@ -53,7 +54,6 @@ const addMarker = (point, timeout) => {
     });
   });
 }
-
 
 $(document).ready(function() {
   loc.initLocationProcedure();
