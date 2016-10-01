@@ -2,7 +2,6 @@ let map;
 let points;
 let currentLat;
 let currentLong;
-let markers = [];
 let contentString;
 
 let icon ='';
@@ -60,13 +59,13 @@ $(document).ready(function() {
   loc.initLocationProcedure();
 
   $.get('/api/points')
-    .then((result) => {
-    for (let i = 0; i < result.length; i++) {
-      addMarker(result[i], i * 200);
-    }
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
+      .then((result) => {
+        console.log(result);
+        for (let i = 0; i < result.length; i++) {
+          addMarker(result[i], i * 200);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 });

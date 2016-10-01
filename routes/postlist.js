@@ -8,9 +8,9 @@ module.exports = (knex, id) => {
     knex
       ('lists')
       .insert({
-        name:req.body.title,
-        description:req.body.description,
-        user_id:id
+        name: req.body.title,
+        description: req.body.description,
+        user_id: id
       })
       .then((results) => {
         res.json(results);
