@@ -15,11 +15,26 @@ const knexLogger          = require('knex-logger');
 const bookshelf           = require('bookshelf')(knex);
 const User                = bookshelf.Model.extend({tableName: 'users'});
 
-// routes for each table
-const usersRoutes         = require('./routes/users');
-const listsRoutes         = require('./routes/getlist');
-const pointsRoutes        = require('./routes/getpoints');
-const createPointsRoutes  = require('./routes/postpoint');
+
+const PORT        = process.env.PORT || 8080;
+const ENV         = process.env.ENV || "development";
+const express     = require("express");
+const bodyParser  = require("body-parser");
+const sass        = require("node-sass-middleware");
+const app         = express();
+
+const pg          = require('pg');
+const knexConfig  = require("./knexfile");
+const knex        = require("knex")(knexConfig[ENV]);
+const morgan      = require('morgan');
+const knexLogger  = require('knex-logger');
+
+// Seperated Routes for each Resource
+const usersRoutes = require("./routes/users");
+const listsRoutes = require("./routes/getlist");
+const pointsRoutes = require("./routes/getpoints");
+const createPointsRoutes = require("./routes/postpoint");
+const createListsRoutes = require("./routes/postlist");
 //const newLikeRoutes = require("./routes/postlike");
 
 
@@ -66,7 +81,7 @@ app.use("/api/users", usersRoutes(knex));
 app.use("/api/lists", listsRoutes(knex, test_id));
 app.use("/api/points", pointsRoutes(knex));
 app.use("/api/createpoints", createPointsRoutes(knex));
-
+app.use("/api/createlists", createListsRoutes(knex, test_id));
 //app.use("/api/postlike", newLikeRoutes(knex));
 
 // Home page
