@@ -54,7 +54,6 @@ const addMarker = (point, timeout) => {
   });
 }
 
-
 $(document).ready(function() {
   loc.initLocationProcedure();
 
