@@ -64,10 +64,10 @@ const test_id = 2;
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
-app.use("/api/lists", listsRoutes(knex, test_id));
+app.use("/api/lists", listsRoutes(knex));
 app.use("/api/points", pointsRoutes(knex));
 app.use("/api/createpoints", createPointsRoutes(knex));
-app.use("/api/createlists", createListsRoutes(knex, test_id));
+app.use("/api/createlists", createListsRoutes(knex));
 app.use("/api/postlike", newLikeRoutes(knex));
 app.use("/api/getFavourites", getFavourites(knex));
 
