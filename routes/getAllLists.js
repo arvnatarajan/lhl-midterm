@@ -15,6 +15,7 @@ const isLoggedIn = (req, res, next) => {
 module.exports = (knex) => {
   router.get('/', isLoggedIn, (req, res) => {
     knex('lists')
+    .join('users', 'users.id', '=', 'lists.user_id')
     .select('*')
     .then((results) => {
       // console.log(results);

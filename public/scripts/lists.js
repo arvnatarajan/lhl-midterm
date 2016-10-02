@@ -6,7 +6,11 @@ $(document).ready(function() {
     }).done((lists) => {
       lists.forEach((list) => {
         $('#your-lists').append(`
-            <p>${list.name}</p>
+            <tr>
+              <td>${list.name}</td>
+              <td>${list.first_name} ${list.last_name}</td>
+              <td>Edit</td>
+            </tr>
           `)
         });
       })
@@ -23,7 +27,11 @@ $(document).ready(function() {
     }).done((lists) => {
       lists.forEach((list) => {
         $('#all-lists').append(`
-            <p>${list.name}</p>
+            <tr>
+              <td>${list.name}</td>
+              <td>${list.first_name} ${list.last_name}</td>
+              <td>Edit</td>
+            </tr>
           `)
         });
       })
