@@ -26,7 +26,6 @@ $( document ).ready(() => {
     })
   })
 
-
   //Submit List
 
   $('#list-submit').on('click', (event) => {

@@ -17,7 +17,6 @@ const User                = bookshelf.Model.extend({tableName: 'users'});
 
 
 // Seperated Routes for each Resource
-<<<<<<< HEAD
 const usersRoutes         = require("./routes/users");
 const listsRoutes         = require("./routes/getlist");
 const pointsRoutes        = require("./routes/getpoints");
@@ -27,7 +26,6 @@ const likesRoutes         = require("./routes/getlikes");
 const listlikesRoutes     = require("./routes/getlistlikes");
 const newLikeRoutes       = require("./routes/postlike");
 const getFavourites       = require("./routes/getFavourites");
-const newLikeRoutes       = require("./routes/postlike");
 
 // AUTH =========================================================
 const bcrypt              = require('bcrypt-nodejs');

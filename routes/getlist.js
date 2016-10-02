@@ -12,13 +12,15 @@ const isLoggedIn = (req, res, next) => {
   res.redirect('/login');
 }
 
-module.exports = (knex, id) => {
+module.exports = (knex) => {
   router.get('/', isLoggedIn, (req, res) => {
-    knex('lists')
-    .join('users', 'users.id', '=', 'lists.user_id')
+    console.log(req.user[0]);
+    knex('users')
+    .leftJoin('lists', 'users.id', '=', 'lists.user_id')
     .select('*')
     .where('users.id', req.user[0].id)
     .then((results) => {
+      // console.log(results);
       res.json(results);
     });
   });

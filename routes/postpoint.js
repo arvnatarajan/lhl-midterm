@@ -3,7 +3,6 @@
 const express = require('express');
 const router  = express.Router();
 
-
 const isLoggedIn = (req, res, next) => {
   // if user is authenticated in the session, carry on
   if (req.isAuthenticated()){
@@ -13,16 +12,12 @@ const isLoggedIn = (req, res, next) => {
   res.redirect('/login');
 }
 
-
-
-
 module.exports = (knex) => {
-  router.post("/", (req, res) => {
-    console.log(req.body);
-    knex
-      ('points')
+  router.post("/", isLoggedIn, (req, res) => {
+    // console.log(req.body);
+    knex('points')
       .insert({
-        list_id:req.body.listid,
+        list_id: req.body.listid,
         /*user_id:req.user[0].id,*/
         lat: req.body.lat,
         lng: req.body.lng,
@@ -31,7 +26,7 @@ module.exports = (knex) => {
       })
       .then((results) => {
         res.json(results);
-        console.log(req.body)
+        console.log(results);
     })
       .catch((error)=>{
         console.log(error);

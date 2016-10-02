@@ -26,7 +26,20 @@ function favouriteCheck() {
         /*console.log(item.list_id);*/
         $(`#heart-${item.list_id}`).css({'color':'red'});
       })
+    }
+  })
+}
 
+function deleteFavourite() {
+  console.log('deleting')
+  $.ajax({
+    url: '/api/getFavourites',
+    method: 'DELETE',
+    success: function(data){
+      data.forEach(function(item){
+        /*console.log(item.list_id);*/
+        $(`#heart-${item.list_id}`).css({'color':'black'});
+      })
     }
   })
 }
@@ -44,7 +57,6 @@ function createListElement(list, index) {
   var description = list.description;
   var createdBy = list.user_id;
   var liked;
-  console.log(list)
   var html = `
   <div class="listBox" id ="${id}">
     <h3>
@@ -68,8 +80,6 @@ function createListElement(list, index) {
 };
 
 
-
-
 $(document).ready(function() {
 
   function loadLists() {
@@ -84,10 +94,10 @@ $(document).ready(function() {
   };
   loadLists();
 
-
-    $(".glyphicon-heart-empty p").click(function(){
-      $(this).addClass("liked");
-        console.log("liked")
+    $(".glyphicon-heart-empty").click(function(){
+      $(this).addClass('liked');
+      deleteFavourite();
+      loadLists();
     });
 
 

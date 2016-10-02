@@ -60,7 +60,6 @@ $(document).ready(function() {
 
   $.get('/api/points')
       .then((result) => {
-        console.log(result);
         for (let i = 0; i < result.length; i++) {
           addMarker(result[i], i * 200);
         }
