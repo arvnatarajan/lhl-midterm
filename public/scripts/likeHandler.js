@@ -18,17 +18,12 @@ $(document).ready(() => {
 */
 
 // changes the color of the heart by adding 'liked' class
-    $(".glyphicon-heart-empty").on("click", function(){
+/*    $(".glyphicon-heart-empty").on("click", function(){
         console.log('liked')
         $(".glyphicon-heart-empty").toggleClass("liked");
     });
-
-
-$(".glyphicon-heart-empty").on("click", function(){
-   /* console.log($(this).data('likeid'));*/
-   alert('hi');
-  })
+*/
 
 
 
-})
+});

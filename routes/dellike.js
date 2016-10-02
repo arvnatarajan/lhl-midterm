@@ -11,20 +11,16 @@ const isLoggedIn = (req, res, next) => {
 }
 
 module.exports = (knex) => {
-  router.delete("/", isLoggedIn, (req, res) => {
-   console.log(req.body);
-    knex('favourites')
-      .delete({
-        list_id: req.body.listid,
-        /*user_id:req.user[0].id,*/
-        lat: req.body.lat,
-        lng: req.body.lng,
-        name: req.body.title,
-        description: req.body.description
+  router.delete("/", (req, res) => {
+    knex
+      ('favourites')
+      .where({
+        list_id:req.body.list,
+        user_id:req.user[0].id
       })
+      .del()
       .then((results) => {
         res.json(results);
-        console.log(results);
     })
       .catch((error)=>{
         console.log(error);
