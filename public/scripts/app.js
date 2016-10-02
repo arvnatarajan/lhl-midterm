@@ -34,12 +34,13 @@ function favouriteCheck() {
 function deleteFavourite() {
   console.log('deleting')
   $.ajax({
-    url: '/api/getFavourites',
+    url: '/api/dellike',
     method: 'DELETE',
     success: function(data){
       data.forEach(function(item){
-        /*console.log(item.list_id);*/
+        console.log(item.list_id);
         $(`#heart-${item.list_id}`).css({'color':'black'});
+        loadLists();
       })
     }
   })
@@ -74,7 +75,6 @@ function createListElement(list, index) {
     </p>
     <span id="heart-${id}" data-likeid="${id}" class="glyphicon glyphicon-heart-empty" aria-hidden="true">&nbsp;<p>Like</p></span>
     <span class="glyphicon glyphicon-pencil" aria-hidden="true">&nbsp;<p>Edit</p></span>
-    <span class="glyphicon glyphicon-share-alt" aria-hidden="true">&nbsp;<p>Share</p></span>
   </div>`;
 
   return $('#lists-container').append(html);
@@ -82,6 +82,8 @@ function createListElement(list, index) {
 
 
 $(document).ready(function() {
+
+
 
   function loadLists() {
     $.ajax({
@@ -96,10 +98,9 @@ $(document).ready(function() {
   loadLists();
 
     $(".glyphicon-heart-empty").click(function(){
-      $(this).addClass('liked');
       deleteFavourite();
-      loadLists();
     });
+
 
 
 })

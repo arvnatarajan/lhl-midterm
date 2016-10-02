@@ -9,5 +9,13 @@ body {
   map {
     height: 100%;
   }
+  #bubbleNav {
+    text-align: right;
+    float: right;
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    right: 10px;
+  }
 }
 }
