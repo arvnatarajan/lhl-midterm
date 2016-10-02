@@ -31,7 +31,6 @@ function favouriteCheck() {
   })
 }
 
-
 function addToFavourites(listid){
   $.ajax({
     method:"POST",
@@ -40,7 +39,7 @@ function addToFavourites(listid){
     success: function(response){
       console.log(response);
     }
-  })
+  }
 }
 
 function removeFromFavourites(){
@@ -69,10 +68,11 @@ function createListElement(list, index) {
   var name = list.name;
   var description = list.description;
   var createdBy = list.user_id;
+  var liked;
   var html = `
   <div class="listBox" id ="${id}">
     <h3>
-      ${id}
+      id: ${id}
     </h3>
     <h2>
       ${name}
@@ -85,13 +85,15 @@ function createListElement(list, index) {
     </p>
     <span id="heart-${id}" data-likeid="${id}" class="glyphicon glyphicon-heart-empty" aria-hidden="true">&nbsp;<p>Like</p></span>
     <span class="glyphicon glyphicon-pencil" aria-hidden="true">&nbsp;<p>Edit</p></span>
-    <span class="glyphicon glyphicon-share-alt" aria-hidden="true">&nbsp;<p>Share</p></span>
   </div>`;
 
   return $('#lists-container').append(html);
 };
 
+
 $(document).ready(function() {
+
+
 
   function loadLists() {
     $.ajax({
@@ -104,6 +106,11 @@ $(document).ready(function() {
     });
   };
   loadLists();
+
+    $(".glyphicon-heart-empty").click(function(){
+      deleteFavourite();
+    });
+
 
 
 })

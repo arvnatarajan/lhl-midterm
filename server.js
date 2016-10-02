@@ -17,14 +17,18 @@ const User                = bookshelf.Model.extend({tableName: 'users'});
 
 
 // Seperated Routes for each Resource
-const usersRoutes = require("./routes/users");
-const listsRoutes = require("./routes/getlist");
-const pointsRoutes = require("./routes/getpoints");
-const createPointsRoutes = require("./routes/postpoint");
-const createListsRoutes = require("./routes/postlist");
-const newLikeRoutes = require("./routes/postlike");
-const getFavourites = require("./routes/getFavourites");
+
+const usersRoutes         = require("./routes/users");
+const listsRoutes         = require("./routes/getlist");
+const pointsRoutes        = require("./routes/getpoints");
+const createPointsRoutes  = require("./routes/postpoint");
+const createListsRoutes   = require("./routes/postlist");
+const likesRoutes         = require("./routes/getlikes");
+const listlikesRoutes     = require("./routes/getlistlikes");
+const newLikeRoutes       = require("./routes/postlike");
+const getFavourites       = require("./routes/getFavourites");
 const getAllLists = require("./routes/getAllLists");
+
 
 
 // AUTH =========================================================
@@ -33,7 +37,6 @@ const passport            = require('passport');
 const flash               = require('connect-flash');
 const cookieParser        = require('cookie-parser');
 const session             = require('express-session');
-
 
 // required for passport
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
@@ -67,6 +70,10 @@ const test_id = 2;
 app.use("/api/users", usersRoutes(knex));
 app.use("/api/lists", listsRoutes(knex));
 app.use("/api/points", pointsRoutes(knex));
+
+app.use("/api/likes", likesRoutes(knex));
+app.use("/api/listlikes", listlikesRoutes(knex));
+
 app.use("/api/createpoints", createPointsRoutes(knex));
 app.use("/api/createlists", createListsRoutes(knex));
 app.use("/api/postlike", newLikeRoutes(knex));
