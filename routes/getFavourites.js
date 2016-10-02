@@ -12,23 +12,14 @@ const isLoggedIn = (req, res, next) => {
   res.redirect('/login');
 }
 
-
-
 module.exports = (knex) => {
-  router.post("/", (req, res) => {
-    knex
-      ('lists')
-      .insert({
-        name: req.body.title,
-        description: req.body.description,
-        user_id: req.user[0].id
-      })
-      .then((results) => {
-        res.json(results);
-    })
-      .catch((error)=>{
-        console.log(error);
-      })
+  router.get('/', isLoggedIn, (req, res) => {
+    knex('favourites')
+    .select('list_id')
+    .where('user_id', req.user[0].id)
+    .then((results) => {
+      res.json(results)
+    });
   });
   return router;
 }
