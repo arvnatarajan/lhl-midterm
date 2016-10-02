@@ -31,19 +31,26 @@ function favouriteCheck() {
   })
 }
 
-function addToFavourites(listid){
+function addToFavourites(listid) {
   $.ajax({
     method:"POST",
     url:"/api/postlike",
-    data: listid,
+    data: {list:listid},
     success: function(response){
       console.log(response);
     }
-  }
+  })
 }
 
-function removeFromFavourites(){
-
+function removeFromFavourites(listid){
+  $.ajax({
+    type: 'DELETE',
+    url:"/api/dellike",
+    data: {list:listid},
+    success: function(response){
+      console.log(response);
+    }
+  })
 }
 
 
@@ -54,11 +61,13 @@ function renderLists(lists) {
 
   //ON CLICK CHECKS IF already favourited
   $( ".glyphicon-heart-empty" ).on( "click", function() {
-    let selectedList = $(this).data('listid');
+    let selectedList = $(this).data('likeid');
     if($(this).hasClass('isFavour')){
-      addToFavourites(selectedList);
-    } else {
       removeFromFavourites(selectedList);
+      $(this).removeClass('isFavour').css({'color':'grey'});
+    } else {
+      addToFavourites(selectedList);
+      $(this).addClass('isFavour').css({'color':'red'});
     }
   });
 }
