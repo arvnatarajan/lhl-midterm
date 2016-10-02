@@ -5,15 +5,15 @@
 
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkBjrWzl_yuZ7nrOKPC8NCRWvX4-qOOTY"></script>
-  </body>
   </head>
 
   <body>
     <% include ./partials/side-nav-bar.ejs %>
 <nav id="bubbleNav">
-  <div id="edit-map">EDIT</div>
-  <a href="/profile">Profile</a>
-  <a href="/logout">Logout</a>
+  <div id="edit-map">
+  <a href="" class="btn btn-default btn-sm">EDIT</a></div>
+  <a href="/profile" class="btn btn-default btn-sm">Profile</a>
+  <a href="/logout" class="btn btn-default btn-sm">Logout</a>
 </nav>
 
   <div id="map"></div>
@@ -25,7 +25,6 @@
     <script type="text/javascript" src="/scripts/map.js"></script>
     <script type="text/javascript" src="/scripts/post-modal.js"></script>
     <script type="text/javascript" src="/scripts/get-dropdown-list.js"></script>
-
 
   </body>
 </html>
