@@ -17,6 +17,7 @@ module.exports = (knex) => {
     knex('lists')
     .join('users', 'users.id', '=', 'lists.user_id')
     .select('*')
+    .orderBy('lists.id')
     .then((results) => {
       // console.log(results);
       res.json(results);

@@ -18,6 +18,7 @@ module.exports = (knex) => {
     .join('lists', 'lists.id', '=', 'favourites.list_id')
     .join('users', 'users.id', '=', 'favourites.user_id')
     .select('*')
+    .orderBy('lists.id')
     .where('favourites.user_id', req.user[0].id)
     .then((results) => {
       res.json(results)

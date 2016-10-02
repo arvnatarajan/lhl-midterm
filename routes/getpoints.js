@@ -18,6 +18,7 @@ module.exports = (knex) => {
     .join('lists', 'lists.id', '=', 'points.list_id')
     .join('users', 'users.id', '=', 'lists.user_id')
     .select('list_id', 'lat', 'lng')
+    .orderBy('lists.id')
     .where('users.id', req.user[0].id)
     .then((results) => {
       res.json(results)
