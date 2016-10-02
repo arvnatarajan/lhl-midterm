@@ -12,7 +12,7 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1>Profile Page</h1>
+        <h1><span class="fa fa-user"></span> Profile Page</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
         <a href="/map" class="btn btn-default btn-sm">Map</a>
     </div>
@@ -22,7 +22,7 @@
     <!-- LOCAL INFORMATION -->
     <div class="col-sm-6">
       <div class="well">
-          <h3><span class="fa fa-user"></span> Your Account Details</h3>
+          <h3>Your Account Details</h3>
           <br>
 
           <p>User ID: <%= id %></p>
@@ -36,13 +36,16 @@
     </div>
     <div class="col-sm-6">
       <div class="well">
-          <h3><span class="fa fa-user-lists"></span> Your Lists</h3>
+          <h3>Your Lists</h3>
           <br>
-
+          <p id="your-lists"></p>
       </div>
     </div>
   </div>
 
 </div>
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/lists.js"></script>
 </body>
 </html>
