@@ -27,7 +27,7 @@ const likesRoutes         = require("./routes/getlikes");
 const listlikesRoutes     = require("./routes/getlistlikes");
 const newLikeRoutes       = require("./routes/postlike");
 const getFavourites       = require("./routes/getFavourites");
-const getAllLists = require("./routes/getAllLists");
+const getAllLists         = require("./routes/getAllLists");
 
 
 

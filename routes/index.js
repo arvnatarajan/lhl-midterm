@@ -17,6 +17,17 @@ router.get('/', function(req, res, next) {
   res.render('index.ejs');
 });
 
+/* GET lists page. */
+router.get('/lists', function(req, res, next) {
+  res.render('lists.ejs', {
+    user_id: req.user[0].id,
+    username: req.user[0].username,
+    first_name: req.user[0].first_name,
+    last_name: req.user[0].last_name,
+    email: req.user[0].email
+  });
+});
+
 /* GET profile page */
 router.get('/profile', isLoggedIn, function(req, res) {
   // render profile page, get user info from session
