@@ -5,43 +5,43 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <style>
-        body         { padding-top:80px; word-wrap:break-word; }
+        body { padding-top:80px; word-wrap:break-word; }
     </style>
 </head>
+
 <body>
 <div class="container">
 
-    <div class="page-header text-center">
-        <h1><span class="fa fa-user"></span> Lists Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-        <a href="/profile" class="btn btn-default btn-sm">Profile</a>
-        <a href="/map" class="btn btn-default btn-sm">Map</a>
-    </div>
-
+  <div class="page-header text-center">
+      <h1>Lists</h1>
+      <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+      <a href="/profile" class="btn btn-default btn-sm">Profile</a>
+      <a href="/map" class="btn btn-default btn-sm">Map</a>
+  </div>
+  <div>
+    <p>Logged in as: <%= first_name %> <%= last_name%></p>
+  </div>
   <div class="row">
 
-    <!-- LOCAL INFORMATION -->
-    <div class="col-sm-6">
-      <div class="well">
-          <h3>Your Account Details</h3>
-          <br>
-
-          <p>User ID: <%= user_id %></p>
-          <p>Username: <%= username %></p>
-          <p>E-mail: <%= email %></p>
-          <p>First Name: <%= first_name %></p>
-          <p>Last Name: <%= last_name %></p>
-
-
-      </div>
+  <!-- LOCAL INFORMATION -->
+  <div class="col-sm-6">
+    <div class="well">
+      <h3>Available Lists</h3>
+      <br>
+      <p id="all-lists"></p>
     </div>
+    </div>
+
     <div class="col-sm-6">
       <div class="well">
-          <h3>Your Lists</h3>
-          <br>
-          <p id="your-lists"></p>
+        <h3>Your Lists</h3>
+        <br>
+        <p id="your-lists"></p>
       </div>
     </div>
   </div>
 
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/lists.js"></script>
+</body>
 </div>

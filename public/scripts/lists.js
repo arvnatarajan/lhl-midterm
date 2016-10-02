@@ -15,4 +15,23 @@ $(document).ready(function() {
       });
     }
     loadListsToProfile();
+
+  const loadListsToLists = () => {
+    $.ajax({
+      method: "GET",
+      url: "/api/getAllLists"
+    }).done((lists) => {
+      lists.forEach((list) => {
+        $('#all-lists').append(`
+            <p>${list.name}</p>
+          `)
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+
+    loadListsToLists();
+
 });
