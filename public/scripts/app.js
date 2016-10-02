@@ -17,6 +17,7 @@ $("#hamburger,#hideNav").click(function() {
 });
 
 
+
 function favouriteCheck() {
   $.ajax({
     url: '/api/getFavourites',
@@ -24,7 +25,7 @@ function favouriteCheck() {
     success: function(data){
       data.forEach(function(item){
         /*console.log(item.list_id);*/
-        $(`#heart-${item.list_id}`).css({'color':'red'});
+        $(`#heart-${item.list_id}`).addClass('isFavour').css({'color':'red'});
       })
 
     }
@@ -57,7 +58,7 @@ function createListElement(list, index) {
     <p class="creator">
       By: ${createdBy}
     </p>
-    <span id="heart-${id}" class="glyphicon glyphicon-heart-empty" aria-hidden="true">&nbsp;<p>Like</p></span>
+    <span id="heart-${id}" data-likeid="${id}" class="glyphicon glyphicon-heart-empty" aria-hidden="true">&nbsp;<p>Like</p></span>
     <span class="glyphicon glyphicon-pencil" aria-hidden="true">&nbsp;<p>Edit</p></span>
     <span class="glyphicon glyphicon-share-alt" aria-hidden="true">&nbsp;<p>Share</p></span>
   </div>`;
@@ -65,14 +66,11 @@ function createListElement(list, index) {
   return $('#lists-container').append(html);
 };
 
-
-
-
 $(document).ready(function() {
 
   function loadLists() {
     $.ajax({
-      'url': '/api/lists',
+      'url': '/api/getAllLists',
       'method': 'GET',
       'dataType': 'json',
       'success': function(data) {

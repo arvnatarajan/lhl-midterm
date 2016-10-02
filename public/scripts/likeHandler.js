@@ -1,7 +1,7 @@
 
 $(document).ready(() => {
 
-
+/*
   $('.listBox').on('click', (event) => {
     event.preventDefault();
 
@@ -15,13 +15,14 @@ $(document).ready(() => {
       })
     })
 
+*/
 
-// changes the color of the heart by adding 'liked' class
-    $(".glyphicon-heart-empty").on("click", function(){
-        console.log('liked')
-        $(".glyphicon-heart-empty").addClass("liked");
 
-    });
-
+$(".glyphicon-heart-empty").on("click", function(){
+   /* console.log($(this).data('likeid'));*/
+   alert('hi');
   })
-// ERIC: THIS IS NOT WORKING YET
+
+
+
+})
