@@ -13,7 +13,7 @@
 <div class="container">
 
   <div class="page-header text-center">
-      <h1>Lists</h1>
+      <h1>Lists Page</h1>
       <a href="/logout" class="btn btn-default btn-sm">Logout</a>
       <a href="/profile" class="btn btn-default btn-sm">Profile</a>
       <a href="/map" class="btn btn-default btn-sm">Map</a>
@@ -26,19 +26,43 @@
   <!-- LOCAL INFORMATION -->
   <div class="col-sm-6">
     <div class="well">
-      <h3>Available Lists</h3>
+      <h3>Your Favourites</h3>
       <br>
-      <p id="all-lists"></p>
-    </div>
+      <table id="fav-lists">
+        <tr>
+          <th>List Name</th>
+          <th>List Owner</th>
+          <th>Modify List</th>
+        </tr>
+      </table>
     </div>
 
-    <div class="col-sm-6">
-      <div class="well">
-        <h3>Your Lists</h3>
-        <br>
-        <p id="your-lists"></p>
-      </div>
+    <div class="well">
+      <h3>Available Lists</h3>
+      <br>
+      <table id="all-lists">
+        <tr>
+          <th>List Name</th>
+          <th>List Owner</th>
+          <th>Modify List</th>
+        </tr>
+      </table>
     </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="well">
+      <h3>Your Lists</h3>
+      <br>
+      <table id="your-lists">
+        <tr>
+          <th>List Name</th>
+          <th>List Owner</th>
+          <th>Modify List</th>
+        </tr>
+      </table>
+    </div>
+  </div>
   </div>
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>

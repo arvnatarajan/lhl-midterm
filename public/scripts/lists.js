@@ -34,4 +34,27 @@ $(document).ready(function() {
 
     loadListsToLists();
 
+    const loadFavouritesToLists = () => {
+      $.ajax({
+        method: "GET",
+        url: "/api/getFavourites"
+      }).done((lists) => {
+        lists.forEach((list) => {
+          console.log(list);
+          $('#fav-lists').append(`
+              <tr>
+                <td>${list.name}</td>
+                <td>${list.first_name} ${list.last_name}</td>
+                <td>Edit</td>
+              </tr>
+            `)
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      }
+
+      loadFavouritesToLists();
+
 });

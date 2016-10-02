@@ -15,8 +15,10 @@ const isLoggedIn = (req, res, next) => {
 module.exports = (knex) => {
   router.get('/', isLoggedIn, (req, res) => {
     knex('favourites')
-    .select('list_id')
-    .where('user_id', req.user[0].id)
+    .leftJoin('lists', 'lists.id', '=', 'favourites.list_id')
+    .leftJoin('users', 'users.id', '=', 'favourites.user_id')
+    .select('*')
+    .where('favourites.user_id', req.user[0].id)
     .then((results) => {
       res.json(results)
     });
