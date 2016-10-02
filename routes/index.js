@@ -26,7 +26,7 @@ router.get('/profile', isLoggedIn, function(req, res) {
     lists.push(row.name);
   });
   res.render('profile.ejs', {
-    id: req.user[0].id,
+    id: req.user[0].gitid,
     username: req.user[0].username,
     first_name: req.user[0].first_name,
     last_name: req.user[0].last_name,
