@@ -18,11 +18,6 @@ $(document).ready(() => {
 */
 
 
-$(".glyphicon-heart-empty").on("click", function(){
-   /* console.log($(this).data('likeid'));*/
-   alert('hi');
-  })
 
 
-
-})
+});

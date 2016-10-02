@@ -27,9 +27,24 @@ function favouriteCheck() {
         /*console.log(item.list_id);*/
         $(`#heart-${item.list_id}`).addClass('isFavour').css({'color':'red'});
       })
-
     }
   })
+}
+
+
+function addToFavourites(listid){
+  $.ajax({
+    method:"POST",
+    url:"/api/postlike",
+    data: listid,
+    success: function(response){
+      console.log(response);
+    }
+  })
+}
+
+function removeFromFavourites(){
+
 }
 
 
@@ -37,6 +52,16 @@ function renderLists(lists) {
   $('#lists-container').empty();
   lists.forEach(createListElement);
   favouriteCheck();
+
+  //ON CLICK CHECKS IF already favourited
+  $( ".glyphicon-heart-empty" ).on( "click", function() {
+    let selectedList = $(this).data('listid');
+    if($(this).hasClass('isFavour')){
+      addToFavourites(selectedList);
+    } else {
+      removeFromFavourites(selectedList);
+    }
+  });
 }
 
 function createListElement(list, index) {
