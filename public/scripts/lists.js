@@ -26,6 +26,7 @@ $(document).ready(function() {
       url: "/api/getAllLists"
     }).done((lists) => {
       lists.forEach((list) => {
+        console.log(list);
         $('#all-lists').append(`
             <tr>
               <td>${list.name}</td>
