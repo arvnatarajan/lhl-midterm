@@ -17,9 +17,25 @@ $("#hamburger,#hideNav").click(function() {
 });
 
 
+function favouriteCheck() {
+  $.ajax({
+    url: '/api/getFavourites',
+    method: 'GET',
+    success: function(data){
+      data.forEach(function(item){
+        /*console.log(item.list_id);*/
+        $(`#heart-${item.list_id}`).css({'color':'red'});
+      })
+
+    }
+  })
+}
+
+
 function renderLists(lists) {
   $('#lists-container').empty();
   lists.forEach(createListElement);
+  favouriteCheck();
 }
 
 function createListElement(list, index) {
@@ -43,13 +59,15 @@ function createListElement(list, index) {
     <p class="creator">
       By: ${createdBy}
     </p>
-    <span class="glyphicon glyphicon-heart-empty" aria-hidden="true">&nbsp;<p>Like</p></span>
+    <span id="heart-${id}" class="glyphicon glyphicon-heart-empty" aria-hidden="true">&nbsp;<p>Like</p></span>
     <span class="glyphicon glyphicon-pencil" aria-hidden="true">&nbsp;<p>Edit</p></span>
     <span class="glyphicon glyphicon-share-alt" aria-hidden="true">&nbsp;<p>Share</p></span>
   </div>`;
 
   return $('#lists-container').append(html);
 };
+
+
 
 
 $(document).ready(function() {

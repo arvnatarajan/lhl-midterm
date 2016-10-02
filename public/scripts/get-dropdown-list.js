@@ -6,7 +6,7 @@ $(document).ready(()=>{
         let html = `<li data-list-id="${list.id}"><a href="#">${list.name}</a></li>`;
         $('.modal-list-drop').append(html);
 
-        $('.modal-list-drop li').on('click', (event) => {
+        $('.modal-list-drop li').on('click', function (event){
           event.stopPropagation();
           /*console.log($(this).data("list-id"));*/
           let id = $(this).data("list-id");

@@ -20,18 +20,12 @@ router.get('/', function(req, res, next) {
 /* GET profile page */
 router.get('/profile', isLoggedIn, function(req, res) {
   // render profile page, get user info from session
-  // console.log(req.user);
-  let lists = [];
-  req.user.forEach((row) => {
-    lists.push(row.name);
-  });
   res.render('profile.ejs', {
-    id: req.user[0].user_id,
+    id: req.user[0].gitid,
     username: req.user[0].username,
     first_name: req.user[0].first_name,
     last_name: req.user[0].last_name,
-    email: req.user[0].email,
-    lists: lists
+    email: req.user[0].email
    });
 });
 
