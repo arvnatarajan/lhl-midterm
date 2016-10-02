@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 router.get('/profile', isLoggedIn, function(req, res) {
   // render profile page, get user info from session
   res.render('profile.ejs', {
-    id: req.user[0].gitid,
+    user_id: req.user[0].id,
     username: req.user[0].username,
     first_name: req.user[0].first_name,
     last_name: req.user[0].last_name,
