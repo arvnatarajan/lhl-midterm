@@ -28,6 +28,8 @@ const listlikesRoutes     = require("./routes/getlistlikes");
 const newLikeRoutes       = require("./routes/postlike");
 const getFavourites       = require("./routes/getFavourites");
 const getAllLists         = require("./routes/getAllLists");
+const dellike             = require("./routes/dellike");
+
 
 
 
@@ -79,6 +81,7 @@ app.use("/api/createlists", createListsRoutes(knex));
 app.use("/api/postlike", newLikeRoutes(knex));
 app.use("/api/getFavourites", getFavourites(knex));
 app.use("/api/getAllLists", getAllLists(knex));
+app.use("/api/dellike", dellike(knex));
 
 
 // Home page

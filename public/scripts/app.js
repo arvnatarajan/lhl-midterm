@@ -31,17 +31,24 @@ function favouriteCheck() {
   })
 }
 
-function deleteFavourite() {
-  console.log('deleting')
+function addToFavourites(listid) {
   $.ajax({
-    url: '/api/dellike',
-    method: 'DELETE',
-    success: function(data){
-      data.forEach(function(item){
-        console.log(item.list_id);
-        $(`#heart-${item.list_id}`).css({'color':'black'});
-        loadLists();
-      })
+    method:"POST",
+    url:"/api/postlike",
+    data: {list:listid},
+    success: function(response){
+      console.log(response);
+    }
+  })
+}
+
+function removeFromFavourites(listid){
+  $.ajax({
+    type: 'DELETE',
+    url:"/api/dellike",
+    data: {list:listid},
+    success: function(response){
+      console.log(response);
     }
   })
 }
@@ -51,6 +58,18 @@ function renderLists(lists) {
   $('#lists-container').empty();
   lists.forEach(createListElement);
   favouriteCheck();
+
+  //ON CLICK CHECKS IF already favourited
+  $( ".glyphicon-heart-empty" ).on( "click", function() {
+    let selectedList = $(this).data('likeid');
+    if($(this).hasClass('isFavour')){
+      removeFromFavourites(selectedList);
+      $(this).removeClass('isFavour').css({'color':'grey'});
+    } else {
+      addToFavourites(selectedList);
+      $(this).addClass('isFavour').css({'color':'red'});
+    }
+  });
 }
 
 function createListElement(list, index) {
