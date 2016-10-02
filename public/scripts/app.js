@@ -20,6 +20,7 @@ $("#hamburger,#hideNav").click(function() {
 function renderLists(lists) {
   $('#lists-container').empty();
   lists.forEach(createListElement);
+  favouriteCheck();
 }
 
 function createListElement(list, index) {
@@ -48,6 +49,17 @@ function createListElement(list, index) {
 
   return $('#lists-container').append(html);
 };
+
+
+function favoriteCheck() {
+  $.ajax({
+    'url': '/api/getFavourites',
+    'method': 'GET',
+    'success': function(data){
+      console.log(data);
+    }
+  })
+}
 
 
 $(document).ready(function() {
