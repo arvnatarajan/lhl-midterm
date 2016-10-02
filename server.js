@@ -17,6 +17,7 @@ const User                = bookshelf.Model.extend({tableName: 'users'});
 
 
 // Seperated Routes for each Resource
+
 const usersRoutes         = require("./routes/users");
 const listsRoutes         = require("./routes/getlist");
 const pointsRoutes        = require("./routes/getpoints");
@@ -26,6 +27,9 @@ const likesRoutes         = require("./routes/getlikes");
 const listlikesRoutes     = require("./routes/getlistlikes");
 const newLikeRoutes       = require("./routes/postlike");
 const getFavourites       = require("./routes/getFavourites");
+const getAllLists = require("./routes/getAllLists");
+
+
 
 // AUTH =========================================================
 const bcrypt              = require('bcrypt-nodejs');
@@ -74,6 +78,7 @@ app.use("/api/createpoints", createPointsRoutes(knex));
 app.use("/api/createlists", createListsRoutes(knex));
 app.use("/api/postlike", newLikeRoutes(knex));
 app.use("/api/getFavourites", getFavourites(knex));
+app.use("/api/getAllLists", getAllLists(knex));
 
 
 // Home page

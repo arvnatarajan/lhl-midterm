@@ -67,4 +67,15 @@ $(document).ready(function() {
       .catch((err) => {
         console.log(err);
       });
+
+  google.maps.event.addListener(map, 'click', function(event) {
+    if ($('#edit-map').hasClass('insert-mode')) {
+      let newPoint = {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng()
+      }
+      addMarker(newPoint, 200);
+      $('#myModal').modal('show');
+    }
+  });
 });
