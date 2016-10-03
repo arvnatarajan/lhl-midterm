@@ -24,7 +24,7 @@ $( document ).ready(() => {
           $('.point-body').show();
           $('#list-submit').hide();
           $('#modal-submit').show();
-          $('.modal-list-drop').append(
+          $('.modal-list-drop').append(`<li><a href ="#">${data.title}</a></li>`);
         }
       })
   })
