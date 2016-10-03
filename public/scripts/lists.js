@@ -8,8 +8,6 @@ $(document).ready(function() {
         $('#your-lists').append(`
             <tr>
               <td>${list.name}</td>
-              <td>${list.first_name} ${list.last_name}</td>
-              <td class = "profile-edit"><a href="/editlist">Edit</a></td>
             </tr>
           `)
         });
@@ -30,8 +28,6 @@ $(document).ready(function() {
         $('#all-lists').append(`
             <tr>
               <td>${list.name}</td>
-              <td>${list.first_name} ${list.last_name}</td>
-              <td>Edit</td>
             </tr>
           `)
         });
@@ -49,12 +45,9 @@ $(document).ready(function() {
         url: "/api/getFavourites"
       }).done((lists) => {
         lists.forEach((list) => {
-          console.log(list);
           $('#fav-lists').append(`
               <tr>
                 <td>${list.name}</td>
-                <td>${list.first_name} ${list.last_name}</td>
-                <td>Edit</td>
               </tr>
             `)
           });
