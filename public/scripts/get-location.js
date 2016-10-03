@@ -6,7 +6,8 @@ let loc = {
     loc.currentPositionMarker = new google.maps.Marker({
       map: map,
       position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-      title: "Current Position"
+      title: "Current Position",
+      icon: '../images/pin.png'
     });
 
     //AN: Pans to current position marker

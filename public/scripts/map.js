@@ -6,20 +6,30 @@ let contentString;
 
 let icon ='';
 
-const iconBase = 'http://maps.google.com/mapfiles/';
-
 const icons = {
   '1': {
-    icon: iconBase + 'kml/pal2/icon4.png'
+    icon: '../images/bed.png'
   },
   '2': {
-    icon: iconBase + 'kml/pal2/icon19.png'
+    icon: '../images/cart.png'
   },
   '3': {
-    icon: iconBase + 'kml/pal2/icon32.png'
+    icon: '../images/music.png'
   },
   '4': {
-    icon: iconBase + 'kml/pal4/icon38.png'
+    icon: '../images/restaurant.png'
+  },
+  '5': {
+    icon: '../images/theater.png'
+  },
+  '6': {
+    icon: '../images/football.png'
+  },
+  '7': {
+    icon: '../images/picture.png'
+  },
+  '8': {
+    icon: '../images/park.png'
   }
 }
 
