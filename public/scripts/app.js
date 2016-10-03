@@ -33,7 +33,7 @@ function addToFavourites(listid) {
   $.ajax({
     method:"POST",
     url:"/api/postlike",
-    data: {list:listid},
+    data: {list: listid},
     success: function(response){
       console.log(response);
     }
@@ -71,6 +71,7 @@ function renderLists(lists) {
 }
 
 function createListElement(list, index) {
+  console.log(list);
   var id = list.id;
   var name = list.name;
   var description = list.description;

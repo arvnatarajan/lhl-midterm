@@ -39,7 +39,7 @@ $(document).ready(function() {
 
     loadListsToLists();
 
-/*    const loadFavouritesToLists = () => {
+   const loadFavouritesToLists = () => {
       $.ajax({
         method: "GET",
         url: "/api/getFavourites"
@@ -57,5 +57,5 @@ $(document).ready(function() {
         });
       }
 
-      loadFavouritesToLists();*/
+      loadFavouritesToLists();
 });
