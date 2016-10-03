@@ -29,6 +29,7 @@ const newLikeRoutes       = require("./routes/postlike");
 const getFavourites       = require("./routes/getFavourites");
 const getAllLists         = require("./routes/getAllLists");
 const dellike             = require("./routes/dellike");
+const deletePoint         = require("./routes/deletePoint");
 
 
 
@@ -82,12 +83,14 @@ app.use("/api/postlike", newLikeRoutes(knex));
 app.use("/api/getFavourites", getFavourites(knex));
 app.use("/api/getAllLists", getAllLists(knex));
 app.use("/api/dellike", dellike(knex));
+app.use("/api/deletePoint", deletePoint(knex));
 
 
 // Home page
 app.get("/", (req, res) => {
   res.render("index");
 });
+
 
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));

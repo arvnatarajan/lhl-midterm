@@ -6,7 +6,11 @@ $(document).ready(function() {
     }).done((lists) => {
       lists.forEach((list) => {
         $('#your-lists').append(`
-            <p>${list.name}</p>
+            <tr>
+              <td>${list.name}</td>
+              <td>${list.first_name} ${list.last_name}</td>
+              <td class = "profile-edit"><a href="/editlist">Edit</a></td>
+            </tr>
           `)
         });
       })
@@ -14,7 +18,8 @@ $(document).ready(function() {
         console.log(err);
       });
     }
-    loadListsToProfile();
+
+  loadListsToProfile();
 
   const loadListsToLists = () => {
     $.ajax({
@@ -22,8 +27,13 @@ $(document).ready(function() {
       url: "/api/getAllLists"
     }).done((lists) => {
       lists.forEach((list) => {
+        console.log(list);
         $('#all-lists').append(`
-            <p>${list.name}</p>
+            <tr>
+              <td>${list.name}</td>
+              <td>${list.first_name} ${list.last_name}</td>
+              <td>Edit</td>
+            </tr>
           `)
         });
       })
@@ -34,4 +44,26 @@ $(document).ready(function() {
 
     loadListsToLists();
 
+/*    const loadFavouritesToLists = () => {
+      $.ajax({
+        method: "GET",
+        url: "/api/getFavourites"
+      }).done((lists) => {
+        lists.forEach((list) => {
+          console.log(list);
+          $('#fav-lists').append(`
+              <tr>
+                <td>${list.name}</td>
+                <td>${list.first_name} ${list.last_name}</td>
+                <td>Edit</td>
+              </tr>
+            `)
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      }
+
+      loadFavouritesToLists();*/
 });

@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>PROFILE</title>
+    <title><%= username %></title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <style>
@@ -42,7 +42,13 @@
       <div class="well">
           <h3>Your Lists</h3>
           <br>
-          <p id="your-lists"></p>
+          <table id="your-lists">
+            <tr>
+              <th>List Name</th>
+              <th>List Owner</th>
+              <th>Modify List</th>
+            </tr>
+          </table>
       </div>
     </div>
   </div>
