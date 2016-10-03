@@ -1,30 +1,7 @@
 $( document ).ready(() => {
 
-  //Submit Point
+  //Submit Point - moved to map.js
 
-  $('#modal-submit').on('click', (event) => {
-    event.preventDefault();
-    loc.getPosition( (pos) => {
-      let data = {
-        'lat': pos.lat,
-        'lng': pos.lng,
-        'title': $('#point-title').val(),
-        'description': $('#point-description').val(),
-        'picture': $('#point-picture').val(),
-        'listid': $('.list-holder li').data("token")
-      }
-      $(':input').val('');
-      $('#myModal').modal('toggle');
-      $.ajax({
-        url: '/api/createpoints',
-        type: 'POST',
-        data: data,
-        success: () => {
-          console.log('Point added to database');
-        }
-      })
-    })
-  })
 
   //Submit List
 
@@ -35,13 +12,19 @@ $( document ).ready(() => {
         'description': $('#list-description').val()
       }
       $(':input').val('');
-      $('#myModal').modal('toggle');
       $.ajax({
         url: '/api/createlists',
         type: 'POST',
         data: data,
         success: () => {
           console.log('List added to database');
+          $('.list-pill').removeClass('active');
+          $(this).addClass('active');
+          $('.list-body').hide();
+          $('.point-body').show();
+          $('#list-submit').hide();
+          $('#modal-submit').show();
+          $('.modal-list-drop').append(
         }
       })
   })
@@ -63,6 +46,8 @@ $( document ).ready(() => {
     $('.list-body').show();
     $('#list-submit').show();
     $('#modal-submit').hide();
+
+
 
   })
 

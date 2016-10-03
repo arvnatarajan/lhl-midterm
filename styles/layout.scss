@@ -9,6 +9,21 @@ body {
   map {
     height: 100%;
   }
+  .btn-default {
+    margin: 5px 10px;
+  }
+  #editMode {
+    display:none;
+    position:fixed;
+    z-index: 999;
+    top: 5px;
+    right: 90px;
+  }
+  #editing {
+    color:#FFAAAA;
+    text-align:center;
+    margin: 5px auto;
+  }
   #bubbleNav {
     text-align: right;
     float: right;

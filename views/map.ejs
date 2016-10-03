@@ -10,12 +10,13 @@
   <body>
     <% include ./partials/side-nav-bar.ejs %>
 <nav id="bubbleNav">
-  <div id="edit-map">
-  <a href="" class="btn btn-default btn-sm">EDIT</a></div>
-  <a href="/profile" class="btn btn-default btn-sm">Profile</a>
-  <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-</nav>
 
+  <a href="/profile" class="btn btn-default btn-sm">Profile</a><br>
+  <a href="/logout" class="btn btn-default btn-sm">Logout</a><br>
+  <div id="edit-map">
+  <a class="btn btn-default btn-sm">EDIT</a></div>
+</nav>
+<div id="editMode"><h3 id="editing">EDIT MODE</h3></div>
   <div id="map"></div>
 
     <% include ./partials/modalwindow %>

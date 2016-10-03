@@ -48,7 +48,6 @@ router.get('/editlist', function(req, res, next) {
 /* GET profile page */
 router.get('/profile', isLoggedIn, function(req, res) {
   // render profile page, get user info from session
-  console.log(req.user[0]);
   res.render('profile.ejs', {
     user_id: req.user[0].id,
     username: req.user[0].username,

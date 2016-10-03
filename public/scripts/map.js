@@ -6,20 +6,30 @@ let contentString;
 
 let icon ='';
 
-const iconBase = 'http://maps.google.com/mapfiles/';
-
 const icons = {
   '1': {
-    icon: iconBase + 'kml/pal2/icon4.png'
+    icon: '../images/bed.png'
   },
   '2': {
-    icon: iconBase + 'kml/pal2/icon19.png'
+    icon: '../images/cart.png'
   },
   '3': {
-    icon: iconBase + 'kml/pal2/icon32.png'
+    icon: '../images/music.png'
   },
   '4': {
-    icon: iconBase + 'kml/pal4/icon38.png'
+    icon: '../images/restaurant.png'
+  },
+  '5': {
+    icon: '../images/theater.png'
+  },
+  '6': {
+    icon: '../images/football.png'
+  },
+  '7': {
+    icon: '../images/picture.png'
+  },
+  '8': {
+    icon: '../images/park.png'
   }
 }
 
@@ -55,6 +65,35 @@ const addMarker = (point, timeout) => {
   });
 }
 
+
+const postPointToDB = (point) => {
+  $('#modal-submit').on('click', (event) => {
+    event.preventDefault();
+    let data = {
+      'lat': point.lat,
+      'lng': point.lng,
+      'title': $('#point-title').val(),
+      'description': $('#point-description').val(),
+      'picture': $('#point-picture').val(),
+      'listid': $('.list-holder li').data("token")
+    }
+    $(':input').val('');
+    $('#myModal').modal('toggle');
+    $.ajax({
+      url: '/api/createpoints',
+      type: 'POST',
+      data: data,
+      success: () => {
+        console.log('Point added to database');
+      }
+    })
+  })
+}
+
+const showModal = () => {
+  $('#myModal').modal('show');
+}
+
 $(document).ready(function() {
   loc.initLocationProcedure();
 
@@ -75,7 +114,9 @@ $(document).ready(function() {
         lng: event.latLng.lng()
       }
       addMarker(newPoint, 200);
-      $('#myModal').modal('show');
+      setTimeout(showModal, 1000);
+      postPointToDB(newPoint);
+
     }
   });
 });
