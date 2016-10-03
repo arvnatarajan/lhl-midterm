@@ -116,7 +116,7 @@ $(document).ready(function() {
 
  $('#edit-map').on('click', function(){
    $('#edit-map').toggleClass('insert-mode');
+   $('#editMode').slideToggle('slow');
  })
-
 
 })
