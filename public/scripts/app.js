@@ -11,9 +11,7 @@ $(() => {
 
 // used to toggle the menu
 $("#hamburger,#hideNav").click(function() {
-  $("#mySidenav").animate({
-    width: 'toggle'
-  }, 1000);
+  $('#mySidenav').toggleClass('side-active');
 });
 
 
