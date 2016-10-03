@@ -102,8 +102,6 @@ function createListElement(list, index) {
 
 $(document).ready(function() {
 
-
-
   function loadLists() {
     $.ajax({
       'url': '/api/getAllLists',
@@ -116,10 +114,9 @@ $(document).ready(function() {
   };
   loadLists();
 
-    $(".glyphicon-heart-empty").click(function(){
-      deleteFavourite();
-    });
-
+ $('#edit-map').on('click', function(){
+   $('#edit-map').toggleClass('insert-mode');
+ })
 
 
 })
