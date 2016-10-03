@@ -65,6 +65,35 @@ const addMarker = (point, timeout) => {
   });
 }
 
+
+const postPointToDB = (point) => {
+  $('#modal-submit').on('click', (event) => {
+    event.preventDefault();
+    let data = {
+      'lat': point.lat,
+      'lng': point.lng,
+      'title': $('#point-title').val(),
+      'description': $('#point-description').val(),
+      'picture': $('#point-picture').val(),
+      'listid': $('.list-holder li').data("token")
+    }
+    $(':input').val('');
+    $('#myModal').modal('toggle');
+    $.ajax({
+      url: '/api/createpoints',
+      type: 'POST',
+      data: data,
+      success: () => {
+        console.log('Point added to database');
+      }
+    })
+  })
+}
+
+const showModal = () => {
+  $('#myModal').modal('show');
+}
+
 $(document).ready(function() {
   loc.initLocationProcedure();
 
@@ -85,7 +114,9 @@ $(document).ready(function() {
         lng: event.latLng.lng()
       }
       addMarker(newPoint, 200);
-      $('#myModal').modal('show');
+      setTimeout(showModal, 1000);
+      postPointToDB(newPoint);
+
     }
   });
 });
