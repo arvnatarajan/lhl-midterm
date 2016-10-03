@@ -12,7 +12,7 @@
 }
 
 .side-active{
-  left: 0px!important;
+  left: 0px !important;
   transition: all 0.8s ease;
 }
 
@@ -29,13 +29,14 @@
   background-color: white;
   width: 30%;
   height: 100%;
-  display: none;
+  left:-3000px;
   position:fixed;
   z-index: 100;
   border-right: 1px solid #FFAAAA;
   box-shadow: 10px 0px 150px #FFAAAA;
   opacity: 0.95;
   min-width: 286px;
+  transition: all 0.8s ease;
   a {
     color: #244751;
   }
