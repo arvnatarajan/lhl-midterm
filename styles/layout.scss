@@ -9,6 +9,18 @@ body {
   map {
     height: 100%;
   }
+  #editMode {
+    display:none;
+    position:fixed;
+    z-index: 999;
+    top: 5px;
+    right: 70px;
+  }
+  #editing {
+    color:#FFAAAA;
+    text-align:center;
+    margin: 5px auto;
+  }
   #bubbleNav {
     text-align: right;
     float: right;
