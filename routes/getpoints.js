@@ -17,11 +17,10 @@ module.exports = (knex) => {
     knex('points')
     .join('lists', 'lists.id', '=', 'points.list_id')
     .join('users', 'users.id', '=', 'lists.user_id')
-    // .join('isActive', 'users.id', '=', 'isActive.user_id')
     .select('list_id', 'lat', 'lng')
     .orderBy('lists.id')
     .where('users.id', req.user[0].id)
-    .andWhere('isActive.isActive', 1)
+    // .andWhere('isActive.isActive', 1)
     .then((results) => {
       res.json(results)
     });
